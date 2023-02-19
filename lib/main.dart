@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:syntaxify/screens/home.dart';
+import 'package:syntaxify/screens/result.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,7 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('To Change the World'),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => Home(),
+          '/result': (context) => Result(),
+        }
     );
   }
 }
