@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:syntaxify/lang.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  List<Widget> l =[Text("1"),Text("2"),Text("3")];
+  List<Widget> l = popLang;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -20,42 +21,46 @@ class _HomeState extends State<Home> {
       ),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                      child: Text('To')),
-                  Expanded(
-                    child: CupertinoPicker(itemExtent: 32, onSelectedItemChanged: (selectedIndex) {
-                      print(selectedIndex);
-                    }, children: l),
-                  )
-                ],
-              ),
-              SizedBox(height: 15,)
-              ,
-              Row(
-                children: [
-                  Expanded(
-                      child: Text('From')),
-                  Expanded(
-                    child: CupertinoPicker(itemExtent: 32, onSelectedItemChanged: (selectedIndex) {
-                      print(selectedIndex);
-                    }, children: l),
-                  )
-                ],
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 5),
-                width: double.maxFinite,
-                  height: 40,
-                  child: TextFormField()
-            ],
-          )
-        ),
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Expanded(child: Text('To')),
+                    Expanded(
+                      child: CupertinoPicker(
+                          itemExtent: 32,
+                          onSelectedItemChanged: (selectedIndex) {
+                            print(selectedIndex);
+                          },
+                          children: l),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Expanded(child: Text('From')),
+                    Expanded(
+                      child: CupertinoPicker(
+                          itemExtent: 32,
+                          onSelectedItemChanged: (selectedIndex) {
+                            print(selectedIndex);
+                          },
+                          children: l),
+                    )
+                  ],
+                ),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    width: double.maxFinite,
+                    height: 40,
+                    child: TextFormField())
+              ],
+            )),
       ),
     );
   }
